@@ -1,21 +1,26 @@
+require('dotenv').config();
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.MODE,
   entry: {
     index: ['./src/js/index.js', './src/sass/index.scss'],
     search: ['./src/js/search.js', './src/sass/search.scss']
   },
   output: {
     path: path.resolve(__dirname, 'public/dist'),
-    filename: '[name]_bundle.js',
-    clean: true
+    filename: '[name].js'
   },
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
         exclude: /node_modules/,
       },
       {
@@ -40,5 +45,10 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
+  ],
   devtool: 'source-map'
 };
