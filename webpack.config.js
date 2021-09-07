@@ -2,10 +2,14 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: ['./src/js/main.js', './src/sass/main.scss'],
+  entry: {
+    index: ['./src/js/index.js', './src/sass/index.scss'],
+    search: ['./src/js/search.js', './src/sass/search.scss']
+  },
   output: {
-    path: path.resolve(__dirname, 'public/javascripts'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'public/dist'),
+    filename: '[name]_bundle.js',
+    clean: true
   },
   module: {
     rules: [
