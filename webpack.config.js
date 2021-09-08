@@ -1,15 +1,16 @@
 require('dotenv').config();
 const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: process.env.MODE,
   entry: {
-    index: ['./src/js/index.js', './src/sass/index.scss'],
+    index: ['/src/js/index.js', './src/sass/index.scss'],
     search: ['./src/js/search.js', './src/sass/search.scss']
   },
   output: {
-    path: path.resolve(__dirname, 'public/dist'),
+    path: path.resolve(__dirname, 'public'),
     filename: '[name].js'
   },
   module: {
@@ -49,6 +50,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
   ],
   devtool: 'source-map'
 };
