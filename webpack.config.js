@@ -5,13 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: process.env.MODE,
-  entry: {
-    index: ['/src/js/index.js', './src/sass/index.scss'],
-    search: ['./src/js/search.js', './src/sass/search.scss']
-  },
+  entry: ['/src/js/index.js', './src/sass/index.scss'],
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: '[name].js'
+    filename: 'index.js'
   },
   module: {
     rules: [
@@ -48,7 +45,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: 'index.css',
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
