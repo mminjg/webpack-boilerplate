@@ -2,9 +2,10 @@ require('dotenv').config();
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const mode = process.env.NODE_ENV || "production"
 
 module.exports = {
-  mode: process.env.MODE,
+  mode: mode,
   entry: ['/src/js/index.js', './src/sass/index.scss'],
   output: {
     path: path.resolve(__dirname, 'public'),
