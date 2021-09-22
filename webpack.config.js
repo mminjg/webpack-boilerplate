@@ -6,7 +6,7 @@ const mode = process.env.NODE_ENV || "production"
 
 module.exports = {
   mode: mode,
-  entry: ['/src/js/index.js', './src/sass/index.scss'],
+  entry: ['/src/js/index.js', './src/scss/index.scss'],
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'index.js'

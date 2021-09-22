@@ -5,8 +5,8 @@ export const navigateTo = (url) => {
 
 export const router = async () => {
   const routes = [
-    { path: "/", view: ""},
-    { path: "/search", view: ""},
+    { path: "/", controller: "" },
+    { path: "/search", controller: "" },
   ];
 
   const potentialMatches = routes.map(route => {
