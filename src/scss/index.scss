@@ -7,8 +7,6 @@
   'base/reset',
   'base/typography';
 
-@import 'components/bar';
-
-@import 'layout/header';
-
-@import 'pages/index';
+@import 
+  'components/nav',
+  'components/items';
