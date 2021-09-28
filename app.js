@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const mode = process.env.NODE_ENV || "production"
+const mode = process.env.NODE_ENV || "development"
 
 const webpack = require("webpack"); 
 const webpackDevMiddleware = require("webpack-dev-middleware");
